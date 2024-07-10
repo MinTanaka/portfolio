@@ -23,7 +23,7 @@ export function main() {
               Contact
             </Link>
           </nav>
-          <Button variant="outline" className="md:hidden">
+          <Button  className="md:hidden">
             <MenuIcon className="h-6 w-6" />
           </Button>
         </div>
@@ -36,7 +36,7 @@ export function main() {
                 コードもデザインも、<br/>ボーダーフリーで。
               </h1>
               <p className="text-muted-foreground">
-                I&apos;`m a creative professional with a passion for designing visually stunning and user-friendly digital
+                I&apos;m a creative professional with a passion for designing visually stunning and user-friendly digital
                 products. Let&apos;s bring your ideas to life.
               </p>
               <div className="flex gap-4">
