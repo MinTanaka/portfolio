@@ -14,7 +14,6 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
-<<<<<<< HEAD
       colors: {
             "border": "hsl(var(--border))",
             "input": "hsl(var(--input))",
@@ -75,9 +74,6 @@ const config: Config = {
           }
 },
   plugins: [require("tailwindcss-animate")],
-=======
-  },
-  plugins: [],
->>>>>>> 32d143e5d13cc3145882c4a167c8a87e87a2cb30
+
 };
 export default config;
