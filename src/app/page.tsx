@@ -45,9 +45,7 @@ export function main() {
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                コードもデザインも
-                <br />
-                ボーダーフリーで。
+                「いろいろ」やる。
               </h1>
               <p className="text-muted-foreground">
                 I&apos;m a creative professional with a passion for designing
