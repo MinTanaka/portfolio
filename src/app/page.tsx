@@ -1,12 +1,17 @@
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import ScrollToTopButton from "@/components/component/ScrollToTopButton";
 
 export function main() {
   return (
-    <div className="flex min-h-dvh flex-col bg-background">
+    <div className="flex min-h-dvh flex-col bg-background p-4 background-black">
+      <div className="rounded-lg background fixed p-5 bg-slate-200">
+        <ScrollToTopButton showAfter={100}/>
+      </div>
       <header className="sticky top-0 z-50 border-b-2 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
           <Link href="#" className="text-2xl font-bold" prefetch={false}>
