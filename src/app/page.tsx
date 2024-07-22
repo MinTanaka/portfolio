@@ -1,30 +1,42 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export function main() {
   return (
-    <div className="flex min-h-[100dvh] flex-col bg-background">
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b-2">
+    <div className="flex min-h-dvh flex-col bg-background">
+      <header className="sticky top-0 z-50 border-b-2 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
           <Link href="#" className="text-2xl font-bold" prefetch={false}>
             MinTanaka&apos;s Portfolio
           </Link>
           <nav className="hidden space-x-4 md:flex">
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            <Link
+              href="#"
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              prefetch={false}
+            >
               Work
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            <Link
+              href="#"
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              prefetch={false}
+            >
               About
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            <Link
+              href="#"
+              className="text-sm font-medium underline-offset-4 hover:underline"
+              prefetch={false}
+            >
               Contact
             </Link>
           </nav>
-          <Button  className="md:hidden">
-            <MenuIcon className="h-6 w-6" />
+          <Button className="md:hidden">
+            <MenuIcon className="size-6" />
           </Button>
         </div>
       </header>
@@ -33,11 +45,14 @@ export function main() {
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                コードもデザインも、<br/>ボーダーフリーで。
+                コードもデザインも
+                <br />
+                ボーダーフリーで。
               </h1>
               <p className="text-muted-foreground">
-                I&apos;m a creative professional with a passion for designing visually stunning and user-friendly digital
-                products. Let&apos;s bring your ideas to life.
+                I&apos;m a creative professional with a passion for designing
+                visually stunning and user-friendly digital products. Let&apos;s
+                bring your ideas to life.
               </p>
               <div className="flex gap-4">
                 <Link
@@ -70,8 +85,12 @@ export function main() {
         <section className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
           <div className="space-y-6">
             <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Work</h2>
-              <p className="mt-2 text-muted-foreground">A selection of my latest projects.</p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Featured Work
+              </h2>
+              <p className="mt-2 text-muted-foreground">
+                A selection of my latest projects.
+              </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Link
@@ -86,9 +105,13 @@ export function main() {
                   alt="Project 1"
                   className="aspect-video w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-lg font-semibold text-white">Project 1</h3>
-                  <p className="text-sm text-white/80">A brief description of the project.</p>
+                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
+                  <h3 className="text-white text-lg font-semibold">
+                    Project 1
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    A brief description of the project.
+                  </p>
                 </div>
               </Link>
               <Link
@@ -103,9 +126,13 @@ export function main() {
                   alt="Project 2"
                   className="aspect-video w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-lg font-semibold text-white">Project 2</h3>
-                  <p className="text-sm text-white/80">A brief description of the project.</p>
+                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
+                  <h3 className="text-white text-lg font-semibold">
+                    Project 2
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    A brief description of the project.
+                  </p>
                 </div>
               </Link>
               <Link
@@ -120,9 +147,13 @@ export function main() {
                   alt="Project 3"
                   className="aspect-video w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-lg font-semibold text-white">Project 3</h3>
-                  <p className="text-sm text-white/80">A brief description of the project.</p>
+                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
+                  <h3 className="text-white text-lg font-semibold">
+                    Project 3
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    A brief description of the project.
+                  </p>
                 </div>
               </Link>
               <Link
@@ -137,9 +168,13 @@ export function main() {
                   alt="Project 4"
                   className="aspect-video w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-lg font-semibold text-white">Project 4</h3>
-                  <p className="text-sm text-white/80">A brief description of the project.</p>
+                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
+                  <h3 className="text-white text-lg font-semibold">
+                    Project 4
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    A brief description of the project.
+                  </p>
                 </div>
               </Link>
               <Link
@@ -154,9 +189,13 @@ export function main() {
                   alt="Project 5"
                   className="aspect-video w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-lg font-semibold text-white">Project 5</h3>
-                  <p className="text-sm text-white/80">A brief description of the project.</p>
+                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
+                  <h3 className="text-white text-lg font-semibold">
+                    Project 5
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    A brief description of the project.
+                  </p>
                 </div>
               </Link>
               <Link
@@ -171,9 +210,13 @@ export function main() {
                   alt="Project 6"
                   className="aspect-video w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h3 className="text-lg font-semibold text-white">Project 6</h3>
-                  <p className="text-sm text-white/80">A brief description of the project.</p>
+                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
+                  <h3 className="text-white text-lg font-semibold">
+                    Project 6
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    A brief description of the project.
+                  </p>
                 </div>
               </Link>
             </div>
@@ -182,10 +225,13 @@ export function main() {
         <section className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Let&apos;s Work Together</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Let&apos;s Work Together
+              </h2>
               <p className="text-muted-foreground">
-                I`&apos;`d love to hear about your project and how I can help. Fill out the form below and I&apos;ll get back to you
-                as soon as possible.
+                I`&apos;`d love to hear about your project and how I can help.
+                Fill out the form below and I&apos;ll get back to you as soon as
+                possible.
               </p>
             </div>
             <Card>
@@ -206,15 +252,29 @@ export function main() {
       <footer className="bg-muted py-6">
         <div className="container mx-auto max-w-6xl px-4 md:px-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-muted-foreground">&copy; 2024 John Doe. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground">
+              &copy; 2024 John Doe. All rights reserved.
+            </p>
             <nav className="flex gap-4">
-              <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+              <Link
+                href="#"
+                className="text-sm font-medium underline-offset-4 hover:underline"
+                prefetch={false}
+              >
                 Work
               </Link>
-              <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+              <Link
+                href="#"
+                className="text-sm font-medium underline-offset-4 hover:underline"
+                prefetch={false}
+              >
                 About
               </Link>
-              <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+              <Link
+                href="#"
+                className="text-sm font-medium underline-offset-4 hover:underline"
+                prefetch={false}
+              >
                 Contact
               </Link>
             </nav>
@@ -222,9 +282,9 @@ export function main() {
         </div>
       </footer>
     </div>
-  )
-} 
-function MenuIcon(props:any) {
+  );
+}
+function MenuIcon(props: any) {
   return (
     <svg
       {...props}
@@ -242,6 +302,6 @@ function MenuIcon(props:any) {
       <line x1="4" x2="20" y1="6" y2="6" />
       <line x1="4" x2="20" y1="18" y2="18" />
     </svg>
-  )
+  );
 }
-export default main
+export default main;
