@@ -5,10 +5,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ScrollToTopButton from "@/components/component/ScrollToTopButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export function main() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const techStack = [
+    { name: "React", image: "/react.png" },
+    { name: "Next.js", image: "/next.svg" },
+    { name: "TypeScript", image: "/ts-logo-256.svg" },
+    { name: "Node.js", image: "/nodejs.png" },
+    { name: "Python", image: "/python.png" },
+    { name: "AWS", image: "/amazon-web-services.png" },
+    { name: "Docker", image: "/docker-logo.webp" },
+    { name: "Git", image: "/github.png" },
+  ];
+
   return (
-    <div className="flex min-h-dvh flex-col bg-background p-4 background-black">
+    <div className="flex min-h-dvh flex-col bg-background p-4 background-black pt-0">
       <div className="rounded-lg background fixed p-5 bg-slate-200">
         <ScrollToTopButton showAfter={100}/>
       </div>
@@ -18,27 +43,24 @@ export function main() {
             MinTanaka&apos;s Portfolio
           </Link>
           <nav className="hidden space-x-4 md:flex">
-            <Link
-              href="#"
+            <button
+              onClick={() => scrollToSection('work')}
               className="text-sm font-medium underline-offset-4 hover:underline"
-              prefetch={false}
             >
               Work
-            </Link>
-            <Link
-              href="#"
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
               className="text-sm font-medium underline-offset-4 hover:underline"
-              prefetch={false}
             >
               About
-            </Link>
-            <Link
-              href="#"
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
               className="text-sm font-medium underline-offset-4 hover:underline"
-              prefetch={false}
             >
               Contact
-            </Link>
+            </button>
           </nav>
           <Button className="md:hidden">
             <MenuIcon className="size-6" />
@@ -76,44 +98,44 @@ export function main() {
             </div>
             <div className="relative overflow-hidden rounded-lg">
               <img
-                src="/placeholder.svg"
+                src="https://images.unsplash.com/photo-1611647832580-377268dba7cb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 width={800}
                 height={600}
                 alt="Hero Image"
-                className="aspect-video w-full object-cover"
+                className="aspect-video w-full object-cover blur-sm overflow-hidden"
               />
             </div>
           </div>
         </section>
-        <section className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
+        <section id="work" className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
           <div className="space-y-6">
             <div className="text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Featured Work
+                作ったもの
               </h2>
               <p className="mt-2 text-muted-foreground">
-                A selection of my latest projects.
+                A selection of my projects.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
               <Link
                 href="#"
                 className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
                 prefetch={false}
               >
                 <img
-                  src="/placeholder.svg"
+                  src="/猫谷ルナ.svg"
                   width={600}
                   height={400}
                   alt="Project 1"
-                  className="aspect-video w-full object-cover"
+                  className="aspect-video w-full object-cover blur-sm"
                 />
                 <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    Project 1
+                  <h3 className="text-white text-2xl font-semibold">
+                    VTuberロゴ作成
                   </h3>
                   <p className="text-white/80 text-sm">
-                    A brief description of the project.
+                    VTuber風のロゴの作成・デザイン
                   </p>
                 </div>
               </Link>
@@ -123,18 +145,18 @@ export function main() {
                 prefetch={false}
               >
                 <img
-                  src="/placeholder.svg"
+                  src="https://images.unsplash.com/photo-1528459199957-0ff28496a7f6?q=80&w=2843&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={600}
                   height={400}
                   alt="Project 2"
-                  className="aspect-video w-full object-cover"
+                  className="aspect-video w-full object-cover blur-sm overflow-hidden"
                 />
                 <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    Project 2
+                  <h3 className="text-white text-2xl font-semibold">
+                    MOMO-FONT
                   </h3>
                   <p className="text-white/80 text-sm">
-                    A brief description of the project.
+                    クラウドを活用したフォント管理アプリ
                   </p>
                 </div>
               </Link>
@@ -151,11 +173,11 @@ export function main() {
                   className="aspect-video w-full object-cover"
                 />
                 <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    Project 3
+                  <h3 className="text-white text-2xl font-semibold">
+                    Mi-Admin
                   </h3>
                   <p className="text-white/80 text-sm">
-                    A brief description of the project.
+                    Minecraftの管理画面アプリ
                   </p>
                 </div>
               </Link>
@@ -172,69 +194,95 @@ export function main() {
                   className="aspect-video w-full object-cover"
                 />
                 <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    Project 4
+                  <h3 className="text-white text-2xl font-semibold">
+                    IoT-Dashboard
                   </h3>
                   <p className="text-white/80 text-sm">
-                    A brief description of the project.
-                  </p>
-                </div>
-              </Link>
-              <Link
-                href="#"
-                className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
-                prefetch={false}
-              >
-                <img
-                  src="/placeholder.svg"
-                  width={600}
-                  height={400}
-                  alt="Project 5"
-                  className="aspect-video w-full object-cover"
-                />
-                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    Project 5
-                  </h3>
-                  <p className="text-white/80 text-sm">
-                    A brief description of the project.
-                  </p>
-                </div>
-              </Link>
-              <Link
-                href="#"
-                className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
-                prefetch={false}
-              >
-                <img
-                  src="/placeholder.svg"
-                  width={600}
-                  height={400}
-                  alt="Project 6"
-                  className="aspect-video w-full object-cover"
-                />
-                <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
-                  <h3 className="text-white text-lg font-semibold">
-                    Project 6
-                  </h3>
-                  <p className="text-white/80 text-sm">
-                    A brief description of the project.
+                    IoTデバイスのダッシュボード
                   </p>
                 </div>
               </Link>
             </div>
           </div>
         </section>
-        <section className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
+        <section id="about" className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Let&apos;s Work Together
+                自己紹介
               </h2>
               <p className="text-muted-foreground">
-                I`&apos;`d love to hear about your project and how I can help.
-                Fill out the form below and I&apos;ll get back to you as soon as
-                possible.
+                こんにちは、MinTanakaです。私は開発者として、デザインからウェブアプリケーションの実装まで幅広く携わっています。
+              </p>
+              <p className="text-muted-foreground">
+                技術スタック
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                <li>フロントエンド開発（React, Next.js, TypeScript）</li>
+                <li>バックエンド開発（Node.js,  Python）</li>
+                <li>データベース設計と管理（SQL, NoSQL）</li>
+                <li>UI/UXデザイン</li>
+                <li>クラウドサービスの活用（AWS, Google Cloud）</li>
+                <li>基本情報技術者</li>
+              </ul>
+              <p className="text-muted-foreground">
+                デザインと技術、リアルとバーチャルが融合した社会をつくりたい
+              </p>
+            </div>
+            <div className="relative overflow-hidden rounded-4xl w-64 h-64 mx-auto mt-14">
+              <img
+                src="/github_ore.png"
+                width={256}
+                height={256}
+                alt="MinTanaka's profile"
+                className="w-full h-full object-cover  border-2 border-white"
+              >
+
+              </img>
+            </div>
+          </div>
+        </section>
+        <section id="framework" className="container mx-auto max-w-6xl px-4 pb-0 py-16 md:px-6 md:py-24">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center">
+              技術スタック
+            </h2>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full max-w-5xl mx-auto"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {techStack.map((tech, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="border-2">
+                        <CardContent className="flex flex-col items-center justify-center p-8">
+                          <img
+                            src={tech.image}
+                            alt={tech.name}
+                            className="w-24 h-24 object-contain mb-6"
+                          />
+                          <h3 className="font-semibold text-xl">{tech.name}</h3>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 md:-left-12" />
+              <CarouselNext className="right-0 md:-right-12" />
+            </Carousel>
+          </section>
+        <section id="contact" className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
+          <div className="grid gap-8  md:gap-12">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                お問い合わせ
+              </h2>
+              <p className="text-muted-foreground">
+                案件、お仕事、質問等のお問い合わせはこちらから。
               </p>
             </div>
             <Card>
@@ -251,12 +299,13 @@ export function main() {
             </Card>
           </div>
         </section>
+        
       </main>
       <footer className="bg-muted py-6">
         <div className="container mx-auto max-w-6xl px-4 md:px-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-muted-foreground">
-              &copy; 2024 John Doe. All rights reserved.
+              &copy; 2024 MinTanaka. All rights reserved.
             </p>
             <nav className="flex gap-4">
               <Link
