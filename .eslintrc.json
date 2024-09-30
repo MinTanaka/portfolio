@@ -1,20 +1,8 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:tailwindcss/recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["prettier", "unused-imports"],
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended", "prettier"],
+  "plugins": ["prettier", "tailwindcss"],
   "rules": {
     "prettier/prettier": "error",
-    "unused-imports/no-unused-imports": "error"
+    "tailwindcss/classnames-order": ["warn", { "order": "default" }]
   }
 }
