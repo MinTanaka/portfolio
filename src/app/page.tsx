@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +15,25 @@ import {
 } from "@/components/ui/carousel";
 
 export function main() {
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -33,14 +53,14 @@ export function main() {
   ];
 
   return (
-    <div className="flex min-h-dvh flex-col bg-background p-4 background-black pt-0">
-      <div className="rounded-lg background fixed p-5 bg-slate-200">
+    <div className="flex flex-1 flex-col bg-background pt-0">
+      <div className="rounded-lg fixed p-5 bg-slate-200">
         <ScrollToTopButton showAfter={100}/>
       </div>
       <header className="sticky top-0 z-50 border-b-2 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
           <Link href="#" className="text-2xl font-bold" prefetch={false}>
-            MinTanaka&apos;s Portfolio
+            runa.dev
           </Link>
           <nav className="hidden space-x-4 md:flex">
             <button
@@ -68,7 +88,7 @@ export function main() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="container mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
+        <section className="container mx-auto max-w-6xl px-0 py-16 md:px-6 md:py-24 ">
           <div className="grid gap-8 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -80,30 +100,19 @@ export function main() {
                 bring your ideas to life.
               </p>
               <div className="flex gap-4">
-                <Link
-                  href="#"
+                <button
+                  onClick={() => scrollToSection('work')}
                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                  prefetch={false}
                 >
                   View Work
-                </Link>
-                <Link
-                  href="#"
+                </button>
+                <button
+                  onClick={() => scrollToSection('contact')}
                   className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                  prefetch={false}
                 >
                   Contact Me
-                </Link>
+                </button>
               </div>
-            </div>
-            <div className="relative overflow-hidden rounded-lg">
-              <img
-                src="https://images.unsplash.com/photo-1611647832580-377268dba7cb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                width={800}
-                height={600}
-                alt="Hero Image"
-                className="aspect-video w-full object-cover blur-sm overflow-hidden"
-              />
             </div>
           </div>
         </section>
@@ -117,7 +126,7 @@ export function main() {
                 A selection of my projects.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-2">
               <Link
                 href="#"
                 className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
@@ -149,7 +158,7 @@ export function main() {
                   width={600}
                   height={400}
                   alt="Project 2"
-                  className="aspect-video w-full object-cover blur-sm overflow-hidden"
+                  className="aspect-[3/2] w-full object-cover blur-sm overflow-hidden"
                 />
                 <div className="from-black/70 to-transparent absolute inset-0 bg-gradient-to-t p-4">
                   <h3 className="text-white text-2xl font-semibold">
@@ -167,8 +176,8 @@ export function main() {
               >
                 <img
                   src="/placeholder.svg"
-                  width={600}
-                  height={400}
+                  width={300}
+                  height={200}
                   alt="Project 3"
                   className="aspect-video w-full object-cover"
                 />
@@ -226,7 +235,7 @@ export function main() {
                 <li>基本情報技術者</li>
               </ul>
               <p className="text-muted-foreground">
-                デザインと技術、リアルとバーチャルが融合した社会をつくりたい
+                デザインと技術、リアルとバーチャルが融合した社会をつくりたいと考えています。
               </p>
             </div>
             <div className="relative overflow-hidden rounded-4xl w-64 h-64 mx-auto mt-14">
@@ -301,6 +310,28 @@ export function main() {
         </section>
         
       </main>
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-primary text-primary-foreground p-2 rounded-full shadow-lg transition-all duration-300 hover:opacity-80 hover:scale-110 overflow-hidden"
+          aria-label="トップに戻る"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="rounded-full"
+          >
+            <path d="m18 15-6-6-6 6"/>
+          </svg>
+        </button>
+      )}
       <footer className="bg-muted py-6">
         <div className="container mx-auto max-w-6xl px-4 md:px-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
